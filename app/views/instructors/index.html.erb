@@ -1,6 +1,6 @@
 <h1>All Instructors</h1>
 <% @instructors.each do |i| %>
-  <h2><%= i.name %></h2><br>
+  <h2><%= link_to i.name, instructor_path(i) %></h2><br>
   <p>Courses: <%= i.courses.count %></p>
   <%= link_to "Edit Instructor", edit_instructor_path(i) %>
   <%= link_to "Delete Instructor", instructor_path(i), method: :delete, data: {confirm: "Are you sure?"} %>
