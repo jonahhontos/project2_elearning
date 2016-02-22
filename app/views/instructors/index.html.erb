@@ -2,6 +2,7 @@
 <% @instructors.each do |i| %>
   <h2><%= i.name %></h2><br>
   <p>Courses: <%= i.courses.count %></p>
+  <%= link_to "Edit Instructor", edit_instructor_path(i) %>
   <hr>
 <% end %>
 <%= link_to "New Instructor", new_instructor_path %>
