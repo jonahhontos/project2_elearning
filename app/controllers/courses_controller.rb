@@ -8,6 +8,7 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
+    @subjects = Subject.all
   end
 
   def create
@@ -22,6 +23,7 @@ class CoursesController < ApplicationController
 
   def edit
     @course = Course.find(params[:id])
+    @subjects = Subject.all
   end
 
   def update
@@ -41,6 +43,6 @@ class CoursesController < ApplicationController
 
   private
   def course_params
-    params.require(:course).permit(:name,:description)
+    params.require(:course).permit(:name,:description,:subject_id)
   end
 end
