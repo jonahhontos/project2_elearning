@@ -32,6 +32,9 @@ class ExercisesController < ApplicationController
   end
 
   def destroy
+    c = Exercise.find(params[:id]).concept
+    Exercise.find(params[:id]).destroy
+    redirect_to concept_path(c)
   end
 
   private
