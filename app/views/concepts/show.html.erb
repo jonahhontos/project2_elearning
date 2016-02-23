@@ -1,2 +1,14 @@
-<h1>Concepts#show</h1>
-<p>Find me in app/views/concepts/show.html.erb</p>
+<h1><%= @concept.course.name %></h1>
+<h2><%= @concept.name %></h2>
+<div class="concept-content">
+  <%= @concept.content.html_safe %><br>
+  <%= link_to "Edit", edit_concept_path(@concept) %>
+</div>
+<% @concept.exercises.each do |e| %>
+  <div class="exercise">
+    <%= e.name %><br>
+    <%= link_to "Edit", "#" %> | <%= link_to "Delete", "#" %>
+  </div>
+<% end %>
+<%= link_to "New Exercise", "#" %><br>
+<%= link_to "Back", course_path(@concept.course) %>

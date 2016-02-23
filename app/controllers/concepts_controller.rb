@@ -1,5 +1,6 @@
 class ConceptsController < ApplicationController
   def show
+    @concept = Concept.find(params[:id])
   end
 
   def new
@@ -32,6 +33,9 @@ class ConceptsController < ApplicationController
   end
 
   def destroy
+    c = Concept.find(params[:id]).course
+    Concept.find(params[:id]).destroy
+    redirect_to course_path(c)
   end
 
   private
