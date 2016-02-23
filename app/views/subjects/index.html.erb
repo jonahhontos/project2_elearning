@@ -1,2 +1,9 @@
-<h1>Subjects#index</h1>
-<p>Find me in app/views/subjects/index.html.erb</p>
+<h1>Subjects</h1>
+<% @subjects.each do |s| %>
+  <div class="subject">
+    <h4><%= s.name %></h4><br>
+    <p>Available courses: <%= s.courses.count %></p><br>
+    <%= link_to "Edit", "#" %> | <%= link_to "Delete", "#" %>
+  </div>
+<% end %>
+<%= link_to "Add Subject", "#" %>

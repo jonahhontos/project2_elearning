@@ -2581,3 +2581,10 @@ Processing by InstructorsController#show as HTML
   [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = $1[0m  [["course_id", 1]]
   Rendered instructors/show.html.erb within layouts/application (3.7ms)
 Completed 200 OK in 70ms (Views: 67.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/subjects" for ::1 at 2016-02-23 13:42:27 -0800
+Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (1.0ms)[0m  SELECT "subjects".* FROM "subjects"
+  Rendered subjects/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 62ms (Views: 58.7ms | ActiveRecord: 2.0ms)
