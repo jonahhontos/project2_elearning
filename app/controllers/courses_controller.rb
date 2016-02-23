@@ -20,9 +20,17 @@ class CoursesController < ApplicationController
   end
 
   def edit
+    @course = Course.find(params[:id])
   end
 
   def update
+    @course = Course.find(params[:id])
+
+    if @course.update_attributes(course_params)
+      redirect_to instructor_path(Instructor.find(1))
+    else
+      redirect_to edit_course_path
+    end
   end
 
   def destroy

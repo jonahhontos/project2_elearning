@@ -1,2 +1,8 @@
-<h1>Courses#edit</h1>
-<p>Find me in app/views/courses/edit.html.erb</p>
+<h1>Edit Course</h1>
+<%= form_for @course do |f| %>
+  <%= f.text_field :name, :placeholder => "Course Name" %><br>
+  [subject selector]<br>
+  <%= f.text_field :description , :placeholder => "Course Description"%><br>
+  <%= f.submit %>
+<% end %>
+<%= link_to "Back", instructor_path(Instructor.find(1)) %>
