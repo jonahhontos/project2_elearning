@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  root "instructors#index"
-
+  resources :courses
   # get 'instructors' => "instructors#index"
   # get 'instructors/new' => 'instructors#new', as: :new_instructor
   resources :instructors

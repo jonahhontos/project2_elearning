@@ -1,0 +1,7 @@
+<h1>New Course</h1>
+<%= form_for @course do |f| %>
+  <%= f.text_field :name, :placeholder => "Course Name" %><br>
+  [subject selector]<br>
+  <%= f.text_field :description , :placeholder => "Course Description"%><br>
+  <%= f.submit %>
+<% end %>
