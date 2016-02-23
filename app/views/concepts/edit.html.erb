@@ -1,2 +1,8 @@
-<h1>Concepts#edit</h1>
-<p>Find me in app/views/concepts/edit.html.erb</p>
+<h1><%= @concept.course.name %></h1>
+<h2>Edit Concept</h2>
+<%= form_for @concept do |f| %>
+  <%= f.text_field :name, :placeholder => "Concept Name" %><br>
+  <%= f.text_area :content, :placeholder => "Concept Content" %><br>
+  <%= f.submit %>
+<% end %>
+<%= link_to "Back", course_path(@concept.course) %>

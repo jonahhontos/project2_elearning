@@ -18,9 +18,17 @@ class ConceptsController < ApplicationController
   end
 
   def edit
+    @concept = Concept.find(params[:id])
   end
 
   def update
+    @concept = Concept.find(params[:id])
+
+    if @concept.update_attributes(concept_params)
+      redirect_to course_path(@concept.course)
+    else
+      redirect_to edit_path(@concept)
+    end
   end
 
   def destroy

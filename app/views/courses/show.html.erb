@@ -3,7 +3,7 @@
   <div class="concept">
     <h4><%= c.name %></h4>
     <p>Exercises: <%= c.exercises.count %></p>
-    <p><%= link_to "Edit", "#" %> <%= link_to "Delete", "#" %></p>
+    <p><%= link_to "Edit", edit_concept_path(c) %> <%= link_to "Delete", "#" %></p>
   </div>
 <% end %>
 <%= link_to "Add Concept", new_concept_path + '/' + @course.id.to_s %><br>
