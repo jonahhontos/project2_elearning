@@ -18,9 +18,17 @@ class ExercisesController < ApplicationController
   end
 
   def edit
+    @exercise = Exercise.find(params[:id])
   end
 
   def update
+    @exercise = Exercise.find(params[:id])
+
+    if @exercise.update_attributes(exercise_params)
+      redirect_to concept_path(@exercise.concept)
+    else
+      render :edit
+    end
   end
 
   def destroy

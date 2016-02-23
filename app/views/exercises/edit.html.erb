@@ -1,2 +1,9 @@
-<h1>Exercises#edit</h1>
-<p>Find me in app/views/exercises/edit.html.erb</p>
+<h1><%= @exercise.concept.name %></h1>
+<h2>Edit Exercise</h2>
+<%= form_for @exercise do |f| %>
+  <%= f.text_field :name, :placeholder => "Exercise Name" %><br>
+  <%= f.text_area :content, :placeholder => "Exercise Content" %><br>
+  <%= f.text_field :answer, :placeholder => "Answer" %><br>
+  <%= f.submit %>
+<% end %>
+<%= link_to "Back", concept_path(@exercise.concept) %>

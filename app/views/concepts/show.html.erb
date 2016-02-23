@@ -7,7 +7,7 @@
 <% @concept.exercises.each do |e| %>
   <div class="exercise">
     <%= e.name %><br>
-    <%= link_to "Edit", "#" %> | <%= link_to "Delete", "#" %>
+    <%= link_to "Edit", edit_exercise_path(e) %> | <%= link_to "Delete", "#" %>
   </div>
 <% end %>
 <%= link_to "New Exercise", new_exercise_path + "/" + @concept.id.to_s %><br>
