@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :subjects
+
   resources :exercises
   get 'exercises/new/:id' => 'exercises#new'
 
