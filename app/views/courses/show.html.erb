@@ -1,2 +1,10 @@
-<h1>Courses#show</h1>
-<p>Find me in app/views/courses/show.html.erb</p>
+<h1><%= @course.name %></h1>
+<% @course.concepts.each do |c| %>
+  <div class="concept">
+    <h4><%= c.name %></h4>
+    <p>Exercises: <%= c.exercises.count %></p>
+    <p><%= link_to "Edit", "#" %> <%= link_to "Delete", "#" %></p>
+  </div>
+<% end %>
+<%= link_to "Add Concept", "#" %><br>
+<%= link_to "Back", instructor_path(@course.instructor) %>
