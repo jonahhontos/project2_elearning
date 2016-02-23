@@ -1,2 +1,6 @@
-<h1>Subjects#edit</h1>
-<p>Find me in app/views/subjects/edit.html.erb</p>
+<h1>Edit Subject</h1>
+<%= form_for @subject do |f| %>
+  <%= f.text_field :name, placeholder: "Subject Name" %><br>
+  <%= f.submit %>
+<% end %>
+<%= link_to "Back", subjects_path %>

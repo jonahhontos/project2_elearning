@@ -21,12 +21,21 @@ class SubjectsController < ApplicationController
   end
 
   def edit
+    @subject = Subject.find(params[:id])
   end
 
   def update
+    @subject = Subject.find(params[:id])
+
+    if @subject.update_attributes(subject_params)
+      redirect_to subjects_path
+    else
+      redirect_to edit_subject_path
+    end
   end
 
   def destroy
+
   end
 
   private
