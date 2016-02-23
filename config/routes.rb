@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :concepts
+  get 'concepts/new/:id' => 'concepts#new'
+
   resources :courses
   # get 'instructors' => "instructors#index"
   # get 'instructors/new' => 'instructors#new', as: :new_instructor

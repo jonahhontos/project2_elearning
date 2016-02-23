@@ -6,5 +6,5 @@
     <p><%= link_to "Edit", "#" %> <%= link_to "Delete", "#" %></p>
   </div>
 <% end %>
-<%= link_to "Add Concept", "#" %><br>
+<%= link_to "Add Concept", new_concept_path + '/' + @course.id.to_s %><br>
 <%= link_to "Back", instructor_path(@course.instructor) %>
