@@ -1,2 +1,10 @@
-<h1>Exercises#show</h1>
-<p>Find me in app/views/exercises/show.html.erb</p>
+<h1><%= @exercise.concept.name %></h1>
+<h2><%= @exercise.name %></h2>
+<div class="exercise-content">
+  <%= @exercise.content.html_safe %>
+</div>
+<div class="exercise-answer">
+  <%= @exercise.answer %>
+</div>
+<%= link_to "Edit", edit_exercise_path(@exercise) %><br>
+<%= link_to "Back", concept_path(@exercise.concept) %>

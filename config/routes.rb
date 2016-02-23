@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # get 'instructors' => "instructors#index"
   # get 'instructors/new' => 'instructors#new', as: :new_instructor
   resources :instructors
-
+  root 'instructors#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

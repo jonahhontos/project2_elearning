@@ -3,7 +3,7 @@
   <div class="concept">
     <h4><%= link_to c.name, concept_path(c) %></h4>
     <p>Exercises: <%= c.exercises.count %></p>
-    <p><%= link_to "Edit", edit_concept_path(c) %> <%= link_to "Delete", concept_path(c), method: :delete, data: {confirm: "Are you sure?"} %></p>
+    <p><%= link_to "Edit", edit_concept_path(c) %> | <%= link_to "Delete", concept_path(c), method: :delete, data: {confirm: "Are you sure?"} %></p>
   </div>
 <% end %>
 <%= link_to "Add Concept", new_concept_path + '/' + @course.id.to_s %><br>
