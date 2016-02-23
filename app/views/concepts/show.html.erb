@@ -10,5 +10,5 @@
     <%= link_to "Edit", "#" %> | <%= link_to "Delete", "#" %>
   </div>
 <% end %>
-<%= link_to "New Exercise", "#" %><br>
+<%= link_to "New Exercise", new_exercise_path + "/" + @concept.id.to_s %><br>
 <%= link_to "Back", course_path(@concept.course) %>

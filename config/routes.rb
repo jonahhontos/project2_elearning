@@ -1,15 +1,6 @@
 Rails.application.routes.draw do
-  get 'exercises/show'
-
-  get 'exercises/add'
-
-  get 'exercises/create'
-
-  get 'exercises/edit'
-
-  get 'exercises/update'
-
-  get 'exercises/destroy'
+  resources :exercises
+  get 'exercises/new/:id' => 'exercises#new'
 
   resources :concepts
   get 'concepts/new/:id' => 'concepts#new'
