@@ -9,9 +9,12 @@
 </head>
 <body>
   <% if instructor_logged_in? %>
-    <%= link_to "Log out #{current_instructor.name}", logout_path, class: "btn btn-default" %>
+    <%= link_to "Log out #{current_instructor.name}", logout_path + "?type=instructor",  class: "btn btn-default" %>
+  <% elsif student_logged_in? %>
+    <%= link_to "Log out #{current_student.name}", logout_path + "?type=student", class: "btn btn-default" %>
   <% else %>
-    <%= link_to "Log in Instructor", new_session_path, class: "btn btn-default" %>
+    <%= link_to "Log in Instructor", new_session_path + "?type=instructor", class: "btn btn-default" %>
+    <%= link_to "Log in Student", new_session_path + "?type=student", class: "btn btn-default" %>
   <% end %>
   <% if flash[:success] %>
       <div class="alert alert-success"> <%= flash[:success] %></div>
