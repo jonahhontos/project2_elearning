@@ -12,10 +12,10 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @course = Instructor.find(1).courses.new(course_params)
+    @course = Instructor.find(session[:instructor_id]).courses.new(course_params)
 
     if @course.save
-      redirect_to instructor_path(Instructor.find(1))
+      redirect_to instructor_path(Instructor.find(session[:instructor_id]))
     else
       redirect_to new_course_path
     end
@@ -30,7 +30,7 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
 
     if @course.update_attributes(course_params)
-      redirect_to instructor_path(Instructor.find(1))
+      redirect_to instructor_path(Instructor.find(session[:instructor_id]))
     else
       redirect_to edit_course_path
     end
@@ -38,7 +38,7 @@ class CoursesController < ApplicationController
 
   def destroy
     Course.find(params[:id]).destroy
-    redirect_to instructor_path(Instructor.find(1))
+    redirect_to instructor_path(Instructor.find(session[:instructor_id]))
   end
 
   private
