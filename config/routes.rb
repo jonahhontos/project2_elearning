@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'concepts/new/:id' => 'concepts#new'
 
   resources :courses
+  get 'courses/:id/enroll' => 'courses#enroll', as: :course_enroll
   # get 'instructors' => "instructors#index"
   # get 'instructors/new' => 'instructors#new', as: :new_instructor
   resources :instructors

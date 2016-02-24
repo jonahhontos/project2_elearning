@@ -2,6 +2,13 @@ class CoursesController < ApplicationController
   def index
   end
 
+  def enroll
+    @course = Course.find(params[:id])
+    current_student.courses << @course
+    # redirect_to student_path(current_student)
+    redirect_to course_path(@course)
+  end
+
   def show
     @course = Course.find(params[:id])
   end
