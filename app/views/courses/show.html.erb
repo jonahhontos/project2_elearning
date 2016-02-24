@@ -1,7 +1,12 @@
 <h1><%= @course.name %></h1>
 <% @course.concepts.each do |c| %>
   <div class="concept">
-    <h4><%= link_to c.name, concept_path(c) %></h4>
+    <h4><% if instructor_logged_in? || (student_logged_in? && current_student.courses.include?(@course)) %>
+          <%= link_to c.name, concept_path(c) %>
+        <% else %>
+          <%= c.name %>
+        <% end %>
+    </h4>
     <p>Exercises: <%= c.exercises.count %></p>
     <% if session[:instructor_id] == @course.instructor.id %>
       <p><%= link_to "Edit", edit_concept_path(c) %> | <%= link_to "Delete", concept_path(c), method: :delete, data: {confirm: "Are you sure?"} %></p>
@@ -11,4 +16,4 @@
 <% if session[:instructor_id] == @course.instructor.id %>
   <%= link_to "Add Concept", new_concept_path + '/' + @course.id.to_s %><br>
 <% end %>
-<%= link_to "Back", instructor_path(@course.instructor) %>
+<%= link_to "Back", root_path %>

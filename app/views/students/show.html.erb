@@ -3,6 +3,10 @@
   <div class="course">
     <h4><%= link_to c.name, course_path(c) %></h4><br>
     <p>[====Course Progress====]</p>
+    <%# link_to "Continue" %><br>
     <%= link_to "Drop Course", drop_course_path(c), data: {confirm: "Are you sure?"} %>
   </div>
+<% end %>
+<% if @student.courses.count == 0 %>
+  <%= link_to "Find a Course", subjects_path %>
 <% end %>

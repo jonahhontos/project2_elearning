@@ -5451,3 +5451,6 @@ Processing by SubjectsController#index as HTML
   [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "courses" WHERE "courses"."subject_id" = $1[0m  [["subject_id", 3]]
   Rendered subjects/index.html.erb within layouts/application (5.4ms)
 Completed 200 OK in 88ms (Views: 85.8ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (6.9ms)[0m  INSERT INTO "students" ("name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "nothing"], ["password_digest", "$2a$10$dJDPit689leXq0WiHlbr.eTtwMHWEj93/2Q8RJR4CQYSKq8GPyhT2"], ["created_at", "2016-02-24 21:03:53.622813"], ["updated_at", "2016-02-24 21:03:53.622813"]]
+  [1m[36m (2.4ms)[0m  [1mCOMMIT[0m
