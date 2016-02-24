@@ -16,7 +16,14 @@ class CoursesController < ApplicationController
   end
 
   def continue
-    
+    @course = Course.find(params[:id])
+    unless current_student.progress.concepts.include? @course.concepts.first
+      current_student.progress.concepts << @course.concepts.first
+    end
+    current_student.progress.concepts.where(:course_id == params[:id]).each do |c|
+      @concept = c
+    end
+    redirect_to concept_path(@concept)
   end
 
   def show
