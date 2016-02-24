@@ -15,6 +15,10 @@ class CoursesController < ApplicationController
     redirect_to student_path(current_student)
   end
 
+  def continue
+    
+  end
+
   def show
     @course = Course.find(params[:id])
   end

@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160222055932) do
+ActiveRecord::Schema.define(version: 20160224215416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "Concepts_Progresses", id: false, force: :cascade do |t|
+    t.integer "progress_id", null: false
+    t.integer "concept_id",  null: false
+  end
 
   create_table "concepts", force: :cascade do |t|
     t.string   "name"
@@ -25,6 +30,11 @@ ActiveRecord::Schema.define(version: 20160222055932) do
   end
 
   add_index "concepts", ["course_id"], name: "index_concepts_on_course_id", using: :btree
+
+  create_table "concepts_progresses", id: false, force: :cascade do |t|
+    t.integer "progress_id", null: false
+    t.integer "concept_id",  null: false
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -54,12 +64,25 @@ ActiveRecord::Schema.define(version: 20160222055932) do
 
   add_index "exercises", ["concept_id"], name: "index_exercises_on_concept_id", using: :btree
 
+  create_table "exercises_progresses", id: false, force: :cascade do |t|
+    t.integer "progress_id", null: false
+    t.integer "exercise_id", null: false
+  end
+
   create_table "instructors", force: :cascade do |t|
     t.string   "name"
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
+
+  create_table "progresses", force: :cascade do |t|
+    t.integer  "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "progresses", ["student_id"], name: "index_progresses_on_student_id", using: :btree
 
   create_table "students", force: :cascade do |t|
     t.string   "name"
@@ -78,4 +101,5 @@ ActiveRecord::Schema.define(version: 20160222055932) do
   add_foreign_key "courses", "instructors"
   add_foreign_key "courses", "subjects"
   add_foreign_key "exercises", "concepts"
+  add_foreign_key "progresses", "students"
 end

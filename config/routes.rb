@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :courses
   get 'courses/:id/enroll' => 'courses#enroll', as: :course_enroll
   get 'courses/:id/drop' => 'courses#drop', as: :drop_course
+  get 'courses/:id/continue' => 'courses#continue', as: :continue_course
   # get 'instructors' => "instructors#index"
   # get 'instructors/new' => 'instructors#new', as: :new_instructor
   resources :instructors

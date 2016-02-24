@@ -1,7 +1,7 @@
 <h1><%= @course.name %></h1>
 <% @course.concepts.each do |c| %>
   <div class="concept">
-    <h4><% if instructor_logged_in? || (student_logged_in? && current_student.courses.include?(@course)) %>
+    <h4><% if instructor_logged_in? || (student_logged_in? && current_student.progress.concepts.include?(c)) %>
           <%= link_to c.name, concept_path(c) %>
         <% else %>
           <%= c.name %>
