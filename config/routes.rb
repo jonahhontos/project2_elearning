@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
   resources :subjects
 
   resources :exercises
@@ -12,6 +18,9 @@ Rails.application.routes.draw do
   # get 'instructors/new' => 'instructors#new', as: :new_instructor
   resources :instructors
   root 'instructors#index'
+
+  get 'logout' => 'sessions#destroy', as: :logout
+  resources :sessions, only: [:new, :create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
