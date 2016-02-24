@@ -1,0 +1,8 @@
+<h1><%= @student.name %>'s Courses</h1>
+<% @student.courses.each do |c| %>
+  <div class="course">
+    <h4><%= link_to c.name, course_path(c) %></h4><br>
+    <p>[====Course Progress====]</p>
+    <%= link_to "Drop Course", drop_course_path(c), data: {confirm: "Are you sure?"} %>
+  </div>
+<% end %>

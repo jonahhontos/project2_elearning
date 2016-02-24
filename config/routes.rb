@@ -1,15 +1,6 @@
 Rails.application.routes.draw do
-  get 'student/show'
 
-  get 'student/new'
-
-  get 'student/create'
-
-  get 'student/edit'
-
-  get 'student/update'
-
-  get 'student/destroy'
+  get 'student/:id' => "students#show", as: :student
 
   resources :subjects
 
@@ -21,10 +12,11 @@ Rails.application.routes.draw do
 
   resources :courses
   get 'courses/:id/enroll' => 'courses#enroll', as: :course_enroll
+  get 'courses/:id/drop' => 'courses#drop', as: :drop_course
   # get 'instructors' => "instructors#index"
   # get 'instructors/new' => 'instructors#new', as: :new_instructor
   resources :instructors
-  root 'instructors#index'
+  root 'welcome#index'
 
   get 'logout' => 'sessions#destroy', as: :logout
   resources :sessions, only: [:new, :create]
