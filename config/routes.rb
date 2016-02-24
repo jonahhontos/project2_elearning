@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'student/show'
+
+  get 'student/new'
+
+  get 'student/create'
+
+  get 'student/edit'
+
+  get 'student/update'
+
+  get 'student/destroy'
+
   resources :subjects
 
   resources :exercises
