@@ -3,7 +3,11 @@
   <div class="subject">
     <h4><%= link_to s.name, subject_path(s) %></h4><br>
     <p>Available courses: <%= s.courses.count %></p><br>
-    <%= link_to "Edit", edit_subject_path(s) %> | <%= link_to "Delete", subject_path(s), method: :delete, data: {confirm: "Are you sure?"} %>
+    <% if instructor_logged_in? %>
+      <%= link_to "Edit", edit_subject_path(s) %> | <%= link_to "Delete", subject_path(s), method: :delete, data: {confirm: "Are you sure?"} %>
+    <% end %>
   </div>
 <% end %>
-<%= link_to "Add Subject", new_subject_path %>
+<% if instructor_logged_in? %>
+  <%= link_to "Add Subject", new_subject_path %>
+<% end %>

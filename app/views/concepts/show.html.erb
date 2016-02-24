@@ -2,13 +2,19 @@
 <h2><%= @concept.name %></h2>
 <div class="concept-content">
   <%= @concept.content.html_safe %><br>
-  <%= link_to "Edit", edit_concept_path(@concept) %>
+  <% if session[:instructor_id] == @concept.course.instructor.id %>
+    <%= link_to "Edit", edit_concept_path(@concept) %>
+  <% end %>
 </div>
 <% @concept.exercises.each do |e| %>
   <div class="exercise">
     <%= link_to e.name, exercise_path(e) %><br>
-    <%= link_to "Edit", edit_exercise_path(e) %> | <%= link_to "Delete", exercise_path(e), method: :delete, data: {confirm: "Are you sure?"}  %>
+    <% if session[:instructor_id] == @concept.course.instructor.id %>
+      <%= link_to "Edit", edit_exercise_path(e) %> | <%= link_to "Delete", exercise_path(e), method: :delete, data: {confirm: "Are you sure?"}  %>
+    <% end %>
   </div>
 <% end %>
-<%= link_to "New Exercise", new_exercise_path + "/" + @concept.id.to_s %><br>
+<% if session[:instructor_id] == @concept.course.instructor.id %>
+  <%= link_to "New Exercise", new_exercise_path + "/" + @concept.id.to_s %><br>
+<% end %>
 <%= link_to "Back", course_path(@concept.course) %>

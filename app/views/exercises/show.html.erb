@@ -6,5 +6,7 @@
 <div class="exercise-answer">
   <%= @exercise.answer %>
 </div>
-<%= link_to "Edit", edit_exercise_path(@exercise) %><br>
+<% if session[:instructor_id] == @exercise.concept.course.instructor.id %>
+  <%= link_to "Edit", edit_exercise_path(@exercise) %><br>
+<% end %>
 <%= link_to "Back", concept_path(@exercise.concept) %>
