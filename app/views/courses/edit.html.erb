@@ -1,12 +1,25 @@
-<h1>Edit Course</h1>
+<div class="row">
+  <div class="title">
+    <h1>Edit Course</h1>
+  </div>
+</div>
+
 <%= form_for @course do |f| %>
-  <%= f.text_field :name, :placeholder => "Course Name" %><br>
-  <%= f.select(:subject_id) do %>
-    <% @subjects.each do |s| %>
-      <%= content_tag(:option, s.name, value: s.id) %>
-    <% end %>
-  <% end %><br>
-  <%= f.text_field :description , :placeholder => "Course Description"%><br>
-  <%= f.submit %>
+  <div class="row">
+
+    <div class="form-group ">
+      <p class = "subject-label">Subject:</p>
+      <%= f.select(:subject_id) do %>
+        <% @subjects.each do |s| %>
+          <%= content_tag(:option, s.name, value: s.id) %>
+        <% end %>
+      <% end %><br>
+      <%= f.text_field :name, :placeholder => "Course Name", class: "form-control" %><br>
+      <%= f.text_field :description , :placeholder => "Course Description", class: "form-control" %><br>
+      <%= f.submit "Edit Course", class: "btn btn-default" %>
+    </div> <!-- / form-group -->
+  </div> <!-- / row -->
 <% end %>
-<%= link_to "Back", instructor_path(Instructor.find(session[:instructor_id])) %>
+<div class="row">
+  <%= link_to "Back", instructor_path(Instructor.find(session[:instructor_id])), class: "btn btn-default" %>
+</div>
