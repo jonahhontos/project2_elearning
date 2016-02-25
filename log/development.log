@@ -36741,3 +36741,31 @@ Completed 200 OK in 86ms (Views: 81.8ms | ActiveRecord: 2.4ms)
 
 
 Started GET "/assets/bootstrap/glyphicons-halflings-regular-fc969dc1c6ff531abcf368089dcbaf5775133b0626ff56b52301a059fc0f9e1e.woff" for ::1 at 2016-02-25 15:39:14 -0800
+
+
+Started GET "/concepts/2/edit" for ::1 at 2016-02-25 15:40:12 -0800
+Processing by ConceptsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mConcept Load (0.2ms)[0m  [1mSELECT  "concepts".* FROM "concepts" WHERE "concepts"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered concepts/edit.html.erb within layouts/application (3.8ms)
+  [1m[36mInstructor Load (0.3ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 105ms (Views: 102.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/courses/1" for ::1 at 2016-02-25 15:40:30 -0800
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCourse Load (0.3ms)[0m  SELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mInstructor Load (0.2ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mConcept Load (0.3ms)[0m  SELECT "concepts".* FROM "concepts" WHERE "concepts"."course_id" = $1  [["course_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 2]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1[0m  [["concept_id", 3]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 7]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1[0m  [["concept_id", 8]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 9]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1[0m  [["concept_id", 10]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 11]]
+  Rendered courses/show.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 79ms (Views: 75.7ms | ActiveRecord: 2.6ms)
