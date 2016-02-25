@@ -133,6 +133,30 @@ h1 {
   @extend .col-xs-offset-1;
 }
 
+.form-group {
+  @extend .col-md-6;
+  @extend .col-md-offset-3;
+  @extend .col-sm-8;
+  @extend .col-sm-offset-2;
+  @extend .col-xs-10;
+  @extend .col-xs-offset-1;
+  margin-top: 50px;
+}
+
+.form-control {
+  text-align: center;
+}
+
+select {
+  @extend .form-control;
+  width:auto;
+  margin: 0 auto;
+}
+
+.subject-label {
+  color: $whitish;
+}
+
 .title {
   @extend .boxed;
   @extend .col-md-4;
