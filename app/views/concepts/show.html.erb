@@ -6,6 +6,10 @@
 </div>
 
 <div class="row">
+  <%= link_to "Back to Course", course_path(@concept.course), class: "btn btn-default" %>
+</div>
+
+<div class="row">
   <div class="concept-content">
     <%= @concept.content.html_safe %><br>
     <% if session[:instructor_id] == @concept.course.instructor.id %>
@@ -14,20 +18,33 @@
   </div>
 </div>
 
-<% @concept.exercises.each do |e| %>
-  <div class="exercise">
-    <% if instructor_logged_in? || (student_logged_in? && current_student.progress.exercises.include?(e)) %>
-      <%= link_to e.name, exercise_path(e) %><br>
-    <% end %>
-    <% if session[:instructor_id] == @concept.course.instructor.id %>
-      <%= link_to "Edit", edit_exercise_path(e) %> | <%= link_to "Delete", exercise_path(e), method: :delete, data: {confirm: "Are you sure?"}  %>
-    <% end %>
+<% if student_logged_in? %>
+  <div class="row">
+    <%= link_to "Next", next_concept_path(@concept), class: "btn btn-default" %><br>
   </div>
 <% end %>
+
+<% unless student_logged_in? && @concept.exercises.count > 0 && current_student.progress.include?(@concept.exercise.first) %>
+  <div class="subject-label">
+    Exercises:
+  </div>
+<% end %>
+
+<% @concept.exercises.each do |e| %>
+  <div class="row">
+    <div class="exercise">
+      <% if instructor_logged_in? || (student_logged_in? && current_student.progress.exercises.include?(e)) %>
+        <%= link_to e.name, exercise_path(e) %><br>
+      <% end %>
+      <% if session[:instructor_id] == @concept.course.instructor.id %>
+        <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_exercise_path(e) %>  <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, exercise_path(e), method: :delete, data: {confirm: "Are you sure?"}  %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
 <% if session[:instructor_id] == @concept.course.instructor.id %>
-  <%= link_to "New Exercise", new_exercise_path + "/" + @concept.id.to_s %><br>
+  <div class="row">
+    <%= link_to "New Exercise", new_exercise_path + "/" + @concept.id.to_s, class: "btn btn-default" %><br>
+  </div>
 <% end %>
-<% if student_logged_in? %>
-  <%= link_to "Next", next_concept_path(@concept) %><br>
-<% end %>
-<%= link_to "Back to Course", course_path(@concept.course) %>

@@ -148,6 +148,10 @@ h2 {
   @extend .course;
 }
 
+.exercise, .exercise-content {
+  @extend.course
+}
+
 .form-group {
   @extend .col-md-6;
   @extend .col-md-offset-3;
