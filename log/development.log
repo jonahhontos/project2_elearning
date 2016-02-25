@@ -36253,3 +36253,49 @@ Processing by ConceptsController#new as HTML
   Rendered concepts/new.html.erb within layouts/application (1.6ms)
   [1m[35mInstructor Load (0.3ms)[0m  SELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1  [["id", 1]]
 Completed 200 OK in 66ms (Views: 64.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2016-02-25 15:35:10 -0800
+Processing by WelcomeController#index as HTML
+  [1m[36mInstructor Load (0.2ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/instructors/1
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/instructors/1" for ::1 at 2016-02-25 15:35:10 -0800
+Processing by InstructorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mInstructor Load (0.2ms)[0m  SELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."instructor_id" = $1[0m  [["instructor_id", 1]]
+  [1m[35mSubject Load (0.3ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = $1[0m  [["course_id", 1]]
+  [1m[35mSubject Load (0.2ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = $1[0m  [["course_id", 11]]
+  Rendered instructors/show.html.erb within layouts/application (7.6ms)
+  [1m[35mInstructor Load (0.4ms)[0m  SELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 105ms (Views: 101.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/courses/1/edit" for ::1 at 2016-02-25 15:35:12 -0800
+Processing by CoursesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mSubject Load (0.5ms)[0m  SELECT "subjects".* FROM "subjects"
+  [1m[36mInstructor Load (0.3ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered courses/edit.html.erb within layouts/application (6.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 99ms (Views: 96.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/instructors/1" for ::1 at 2016-02-25 15:35:14 -0800
+Processing by InstructorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mInstructor Load (0.3ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."instructor_id" = $1  [["instructor_id", 1]]
+  [1m[36mSubject Load (0.2ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = $1  [["course_id", 1]]
+  [1m[36mSubject Load (0.2ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = $1  [["course_id", 11]]
+  Rendered instructors/show.html.erb within layouts/application (7.8ms)
+  [1m[36mInstructor Load (0.4ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 79ms (Views: 75.7ms | ActiveRecord: 1.9ms)

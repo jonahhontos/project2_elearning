@@ -6,7 +6,6 @@
 
 <%= form_for @course do |f| %>
   <div class="row">
-
     <div class="form-group ">
       <p class = "subject-label">Subject:</p>
       <%= f.select(:subject_id) do %>
@@ -16,7 +15,7 @@
       <% end %><br>
       <%= f.text_field :name, :placeholder => "Course Name", class: "form-control" %><br>
       <%= f.text_field :description , :placeholder => "Course Description", class: "form-control" %><br>
-      <%= f.submit "Edit Course", class: "btn btn-default" %>
+      <%= f.submit "Update Course", class: "btn btn-default" %>
     </div> <!-- / form-group -->
   </div> <!-- / row -->
 <% end %>
