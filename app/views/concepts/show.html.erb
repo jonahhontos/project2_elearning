@@ -1,11 +1,19 @@
-<h1><%= @concept.course.name %></h1>
-<h2><%= @concept.name %></h2>
-<div class="concept-content">
-  <%= @concept.content.html_safe %><br>
-  <% if session[:instructor_id] == @concept.course.instructor.id %>
-    <%= link_to "Edit", edit_concept_path(@concept) %>
-  <% end %>
+<div class="row">
+  <div class="title">
+    <h1><%= @concept.course.name %></h1>
+    <h2><%= @concept.name %></h2>
+  </div>
 </div>
+
+<div class="row">
+  <div class="concept-content">
+    <%= @concept.content.html_safe %><br>
+    <% if session[:instructor_id] == @concept.course.instructor.id %>
+      <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_concept_path(@concept) %>
+    <% end %>
+  </div>
+</div>
+
 <% @concept.exercises.each do |e| %>
   <div class="exercise">
     <% if instructor_logged_in? || (student_logged_in? && current_student.progress.exercises.include?(e)) %>

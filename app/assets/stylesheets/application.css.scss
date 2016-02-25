@@ -57,6 +57,11 @@ h1 {
   font-style: italic;
 }
 
+h2 {
+  font-size: 20px;
+}
+
+
 #main {
   // background-color: rbga(97,167,255,0.5);
   // background-color: rgba(50, 107, 178, 0.9);
@@ -94,8 +99,10 @@ h1 {
 
 .btn-default {
   @extend .shadow;
+  @extend .text-shadow;
   background: $redish;
   color: $whitish;
+  margin: 10px 0;
 }
 
 .btn-default:hover {
@@ -133,6 +140,14 @@ h1 {
   @extend .col-xs-offset-1;
 }
 
+.concept {
+  @extend .course;
+}
+
+.concept-content {
+  @extend .course;
+}
+
 .form-group {
   @extend .col-md-6;
   @extend .col-md-offset-3;
@@ -157,6 +172,10 @@ select {
   color: $whitish;
 }
 
+.text-shadow {
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+
 .title {
   @extend .boxed;
   @extend .col-md-4;
@@ -165,7 +184,7 @@ select {
   @extend .col-sm-offset-3;
   @extend .col-xs-8;
   @extend .col-xs-offset-2;
-
+  @extend .text-shadow;
 }
 
 .navbar a:hover{

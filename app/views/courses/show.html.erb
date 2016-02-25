@@ -1,19 +1,31 @@
-<h1><%= @course.name %></h1>
-<% @course.concepts.each do |c| %>
-  <div class="concept">
-    <h4><% if instructor_logged_in? || (student_logged_in? && current_student.progress.concepts.include?(c)) %>
-          <%= link_to c.name, concept_path(c) %>
-        <% else %>
-          <%= c.name %>
-        <% end %>
-    </h4>
-    <p>Exercises: <%= c.exercises.count %></p>
-    <% if session[:instructor_id] == @course.instructor.id %>
-      <p><%= link_to "Edit", edit_concept_path(c) %> | <%= link_to "Delete", concept_path(c), method: :delete, data: {confirm: "Are you sure?"} %></p>
-    <% end %>
+<div class="row">
+  <div class="title">
+    <h1><%= @course.name %></h1>
+  </div>
+</div>
+<div class="row">
+  <%= link_to "Back", root_path, class:"btn btn-default" %>
+</div>
+
+<% if session[:instructor_id] == @course.instructor.id %>
+  <div class="row">
+    <%= link_to "Add Concept", new_concept_path + '/' + @course.id.to_s, class: "btn btn-default" %><br>
   </div>
 <% end %>
-<% if session[:instructor_id] == @course.instructor.id %>
-  <%= link_to "Add Concept", new_concept_path + '/' + @course.id.to_s %><br>
+
+<% @course.concepts.each do |c| %>
+  <div class="row">
+    <div class="concept">
+      <h4><% if instructor_logged_in? || (student_logged_in? && current_student.progress.concepts.include?(c)) %>
+            <%= link_to c.name, concept_path(c) %>
+          <% else %>
+            <%= c.name %>
+          <% end %>
+      </h4>
+      <p>Exercises: <%= c.exercises.count %></p>
+      <% if session[:instructor_id] == @course.instructor.id %>
+        <p><%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_concept_path(c) %>  <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, concept_path(c), method: :delete, data: {confirm: "Are you sure?"} %></p>
+      <% end %>
+    </div>
+  </div>
 <% end %>
-<%= link_to "Back", root_path %>
