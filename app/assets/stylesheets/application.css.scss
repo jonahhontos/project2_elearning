@@ -16,3 +16,24 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ @font-face {
+   font-family: CovesLight;
+   src: font-url('Coves_Light.otf') format("opentype");
+ }
+
+ @font-face {
+   font-family: Qanelas;
+   src: font-url('QanelasLight.otf') format("opentype");
+ }
+
+ @font-face {
+  font-family: domo;
+  src: font-url('domo.ttf') format("truetype");
+}
+
+
+body {
+  font-family: "Lato";
+  font-size: 16px;
+}
