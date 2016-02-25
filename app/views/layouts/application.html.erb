@@ -6,28 +6,68 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,300italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Dosis:600' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <% if instructor_logged_in? %>
-    <%= link_to "Log out #{current_instructor.name}", logout_path + "?type=instructor",  class: "btn btn-default" %>
-  <% elsif student_logged_in? %>
-    <%= link_to "Log out #{current_student.name}", logout_path + "?type=student", class: "btn btn-default" %>
-  <% else %>
-    <%= link_to "Log in Instructor", new_session_path + "?type=instructor", class: "btn btn-default" %>
-    <%= link_to "Log in Student", new_session_path + "?type=student", class: "btn btn-default" %>
-  <% end %>
-  <%= link_to "Subjects", subjects_path %> | <%= link_to "Home", root_path %>
-  <% if flash[:success] %>
-      <div class="alert alert-success"> <%= flash[:success] %></div>
-    <% end %>
-    <% if flash[:failure] %>
-      <div class="alert alert-danger"> <%= flash[:failure] %></div>
-    <% end %>
-    <script>
-      $('.alert').delay(1500).fadeOut()
-    </script>
-<%= yield %>
+  <div class="container-fluid" id="main">
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">CoreText</a>
+    </div>
 
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Subjects", subjects_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if instructor_logged_in? %>
+          <li><%= link_to "Log out #{current_instructor.name}", logout_path + "?type=instructor",  class: "btn btn-default" %></li>
+        <% elsif student_logged_in? %>
+          <li><%= link_to "Log out #{current_student.name}", logout_path + "?type=student", class: "btn btn-default" %></li>
+        <% else %>
+          <li><%= link_to "Log in Instructor", new_session_path + "?type=instructor", class: "btn btn-default" %></li>
+          <li><%= link_to "Log in Student", new_session_path + "?type=student", class: "btn btn-default" %></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<% if flash[:success] %>
+  <div class="alert alert-success"> <%= flash[:success] %></div>
+<% end %>
+<% if flash[:failure] %>
+  <div class="alert alert-danger"> <%= flash[:failure] %></div>
+<% end %>
+
+
+
+      <script>
+        $('.alert').delay(1500).fadeOut()
+      </script>
+
+
+  <%= yield %>
+
+  <script>
+  $(document).ready(function(){
+    $('.navbar .dropdown').hover(function() {
+        $(this).find('.dropdown-menu').first().stop(true, true).delay(100).slideDown(50);
+    }, function() {
+        $(this).find('.dropdown-menu').first().stop(true, true).delay(50).slideUp(50)
+    });
+})
+  </script>
+</div>
 </body>
 </html>

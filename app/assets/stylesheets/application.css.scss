@@ -16,6 +16,7 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ // @import "bs-override";
 
  @font-face {
    font-family: CovesLight;
@@ -32,8 +33,65 @@
   src: font-url('domo.ttf') format("truetype");
 }
 
+html, body {
+  height: 100%;
+}
 
 body {
-  font-family: "Lato";
+  font-family: "Lato", "Helvetica Neue", sans-serif;
+  font-weight: 200;
   font-size: 16px;
+  text-align: center;
+  letter-spacing: 1px;
+  // background-image: image-url("paper_bg.jpg");
+  background-size: cover;
+
+}
+
+h1 {
+  margin: 20px;
+  font-size: 24px;
+  font-style: italic;
+}
+
+#main {
+  // background-color: rbga(97,167,255,0.5);
+  // background-color: rgba(50, 107, 178, 0.9);
+  // background-color: white;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#326bb2+0,326bb2+0,12447c+100 */
+  background: #326bb2; /* Old browsers */
+  background: -moz-linear-gradient(-45deg,  #326bb2 0%, #326bb2 0%, #12447c 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg,  #326bb2 0%,#326bb2 0%,#12447c 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg,  #326bb2 0%,#326bb2 0%,#12447c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#326bb2', endColorstr='#12447c',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  min-height: 100%;
+}
+
+.navbar {
+  border-radius: 0;
+  margin: 0 -15px;
+  // background: none;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+  background-color: white;
+}
+
+.navbar a:hover{
+  background-color: #5796E5;
+}
+
+.btn {
+  border-radius: 0;
+  border: none;
+}
+
+.btn-default {
+  background: none;
+}
+
+.btn-default:hover {
+  background: rgba(148,200,255,0.1);
+}
+
+.navbar-brand {
+  font-family: 'Dosis', sans-serif;
 }
