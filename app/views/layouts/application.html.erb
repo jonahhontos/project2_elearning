@@ -32,12 +32,12 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if instructor_logged_in? %>
-          <li><%= link_to "Log out #{current_instructor.name}", logout_path + "?type=instructor",  class: "btn btn-default" %></li>
+          <li><%= link_to "Log out #{current_instructor.name}", logout_path + "?type=instructor" %></li>
         <% elsif student_logged_in? %>
-          <li><%= link_to "Log out #{current_student.name}", logout_path + "?type=student", class: "btn btn-default" %></li>
+          <li><%= link_to "Log out #{current_student.name}", logout_path + "?type=student" %></li>
         <% else %>
-          <li><%= link_to "Log in Instructor", new_session_path + "?type=instructor", class: "btn btn-default" %></li>
-          <li><%= link_to "Log in Student", new_session_path + "?type=student", class: "btn btn-default" %></li>
+          <li><%= link_to "Log in Instructor", new_session_path + "?type=instructor" %></li>
+          <li><%= link_to "Log in Student", new_session_path + "?type=student" %></li>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
