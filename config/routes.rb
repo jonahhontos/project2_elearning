@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'student/new' => "students#new", as: :new_student
   get 'student/:id' => "students#show", as: :student
+  post 'students' => "students#create", as: :students
 
   resources :subjects
 

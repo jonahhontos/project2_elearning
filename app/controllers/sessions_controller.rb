@@ -1,6 +1,11 @@
 class SessionsController < ApplicationController
   def new
     @@type = params[:type]
+    if @@type == "instructor"
+      @path = new_instructor_path
+    else
+      @path = new_student_path
+    end
   end
 
   def create
