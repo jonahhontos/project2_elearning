@@ -5,8 +5,14 @@ class ExercisesController < ApplicationController
 
   def next
     @exercise = Exercise.find(params[:id])
-    current_student.progress.exercises << @exercise
-    redirect_to next_concept_path(@exercise.concept)
+    a = Exercise.new(params.require(:exercise).permit(:answer))
+    # p "printed string: " + a.answer
+    if a.answer.downcase == @exercise.answer.downcase
+      current_student.progress.exercises << @exercise
+      redirect_to next_concept_path(@exercise.concept)
+    else
+      redirect_to exercise_path(@exercise)
+    end
   end
 
   def new
