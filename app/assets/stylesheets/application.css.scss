@@ -18,6 +18,8 @@
  @import "bootstrap";
  // @import "bs-override";
 
+$whitish: white;
+
  @font-face {
    font-family: CovesLight;
    src: font-url('Coves_Light.otf') format("opentype");
@@ -71,12 +73,16 @@ h1 {
   border-radius: 0;
   margin: 0 -15px;
   // background: none;
-  box-shadow: 0 5px 5px rgba(0,0,0,0.1);
-  background-color: white;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.15);
+  background-color: $whitish;
 }
 
-.navbar a:hover{
-  background-color: #5796E5;
+.navbar-brand {
+  font-family: 'Dosis', sans-serif;
+}
+
+.navbar li {
+  padding: 0 10px;
 }
 
 .btn {
@@ -92,6 +98,31 @@ h1 {
   background: rgba(148,200,255,0.1);
 }
 
-.navbar-brand {
-  font-family: 'Dosis', sans-serif;
+.boxed {
+  // margin: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 15px;
+  // width: 100%;
+  background-color: $whitish;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
+}
+
+.flash {
+  position: absolute;
+  left: 30px;
+}
+
+.course {
+  @extend .boxed;
+}
+
+.title {
+  @extend .boxed;
+  @extend .col-md-4;
+  @extend .col-md-offset-4;
+}
+
+.navbar a:hover{
+  background-color: black;
 }

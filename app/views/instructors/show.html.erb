@@ -1,4 +1,4 @@
-<h1><%= @instructor.name %>'s Courses</h1>
+<div class ="title"><h1><%= @instructor.name %>'s Courses</h1></div>
 <% if session[:instructor_id] == @instructor.id %>
   <%= link_to "New Course", new_course_path %>
 <% end %>

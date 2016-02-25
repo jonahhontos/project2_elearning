@@ -44,16 +44,20 @@
   </div><!-- /.container-fluid -->
 </nav>
 <% if flash[:success] %>
-  <div class="alert alert-success"> <%= flash[:success] %></div>
+  <div class="row">
+    <div class="text-success boxed flash"> <%= flash[:success] %></div>
+  </div>
 <% end %>
 <% if flash[:failure] %>
-  <div class="alert alert-danger"> <%= flash[:failure] %></div>
+  <div class="row">
+    <div class="text-danger boxed flash"> <%= flash[:failure] %></div>
+  </div>
 <% end %>
 
 
 
       <script>
-        $('.alert').delay(1500).fadeOut()
+        $('.flash').delay(1500).fadeOut()
       </script>
 
 
