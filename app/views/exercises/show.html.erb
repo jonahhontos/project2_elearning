@@ -3,9 +3,12 @@
 <div class="exercise-content">
   <%= @exercise.content.html_safe %>
 </div>
-<div class="exercise-answer">
-  <%= @exercise.answer %>
-</div>
+<% if instructor_logged_in? || (student_logged_in? && current_student.progress.exercises.include?(@exercise)) %>
+  <div class="exercise-answer">
+    <%= @exercise.answer %>
+  </div>
+<% end %>
+<%= link_to "Next", next_exercise_path(@exercise) %>
 <% if session[:instructor_id] == @exercise.concept.course.instructor.id %>
   <%= link_to "Edit", edit_exercise_path(@exercise) %><br>
 <% end %>

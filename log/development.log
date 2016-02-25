@@ -6332,3 +6332,34 @@ ORDER BY c.conname
   [1m[36mStudent Load (0.6ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 3]]
   [1m[35mProgress Load (0.8ms)[0m  SELECT  "progresses".* FROM "progresses" WHERE "progresses"."student_id" = $1 LIMIT 1  [["student_id", 3]]
   [1m[36mExercise Load (0.6ms)[0m  [1mSELECT "exercises".* FROM "exercises" INNER JOIN "exercises_progresses" ON "exercises"."id" = "exercises_progresses"."exercise_id" WHERE "exercises_progresses"."progress_id" = $1[0m  [["progress_id", 1]]
+  [1m[36mStudent Load (0.7ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.5ms)[0m  INSERT INTO "students" ("name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "test2"], ["password_digest", "$2a$10$CS/X6ftMSNBf9UWG1tl60uCbvPADGz/UE4hDDKiPnnw3zflHWrzUi"], ["created_at", "2016-02-24 22:56:03.515869"], ["updated_at", "2016-02-24 22:56:03.515869"]]
+  [1m[36m (2.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mStudent Load (0.5ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."name" = $1 LIMIT 1  [["name", "test2"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.7ms)[0m  INSERT INTO "progresses" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2016-02-24 22:56:28.520484"], ["updated_at", "2016-02-24 22:56:28.520484"]]
+  [1m[36m (2.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mProgress Load (0.6ms)[0m  SELECT  "progresses".* FROM "progresses" WHERE "progresses"."student_id" = $1 LIMIT 1  [["student_id", 4]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE "progresses" SET "student_id" = $1, "updated_at" = $2 WHERE "progresses"."id" = $3  [["student_id", 4], ["updated_at", "2016-02-24 22:56:28.567578"], ["id", 3]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mStudent Load (0.7ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."name" = $1 LIMIT 1  [["name", "nothing"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "progresses" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2016-02-24 23:47:56.913048"], ["updated_at", "2016-02-24 23:47:56.913048"]]
+  [1m[36m (4.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mProgress Load (0.3ms)[0m  SELECT  "progresses".* FROM "progresses" WHERE "progresses"."student_id" = $1 LIMIT 1  [["student_id", 2]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "progresses" SET "student_id" = $1, "updated_at" = $2 WHERE "progresses"."id" = $3  [["student_id", 2], ["updated_at", "2016-02-24 23:47:56.923538"], ["id", 4]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "students" ("name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "answers"], ["password_digest", "$2a$10$Bs7N3PbwfZll07yOSGGa4OR17LL1sBc9bHQqG9piUFB3vMBEuYLc6"], ["created_at", "2016-02-25 00:42:30.564485"], ["updated_at", "2016-02-25 00:42:30.564485"]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mStudent Load (0.5ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."name" = $1 LIMIT 1  [["name", "answers"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "progresses" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2016-02-25 00:42:59.819551"], ["updated_at", "2016-02-25 00:42:59.819551"]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mProgress Load (0.6ms)[0m  SELECT  "progresses".* FROM "progresses" WHERE "progresses"."student_id" = $1 LIMIT 1  [["student_id", 5]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  UPDATE "progresses" SET "student_id" = $1, "updated_at" = $2 WHERE "progresses"."id" = $3  [["student_id", 5], ["updated_at", "2016-02-25 00:42:59.865176"], ["id", 5]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m

@@ -8,7 +8,9 @@
 </div>
 <% @concept.exercises.each do |e| %>
   <div class="exercise">
-    <%= link_to e.name, exercise_path(e) %><br>
+    <% if instructor_logged_in? || (student_logged_in? && current_student.progress.exercises.include?(e)) %>
+      <%= link_to e.name, exercise_path(e) %><br>
+    <% end %>
     <% if session[:instructor_id] == @concept.course.instructor.id %>
       <%= link_to "Edit", edit_exercise_path(e) %> | <%= link_to "Delete", exercise_path(e), method: :delete, data: {confirm: "Are you sure?"}  %>
     <% end %>
@@ -17,4 +19,7 @@
 <% if session[:instructor_id] == @concept.course.instructor.id %>
   <%= link_to "New Exercise", new_exercise_path + "/" + @concept.id.to_s %><br>
 <% end %>
-<%= link_to "Back", course_path(@concept.course) %>
+<% if student_logged_in? %>
+  <%= link_to "Next", next_concept_path(@concept) %><br>
+<% end %>
+<%= link_to "Back to Course", course_path(@concept.course) %>

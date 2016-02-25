@@ -6,9 +6,11 @@ Rails.application.routes.draw do
 
   resources :exercises
   get 'exercises/new/:id' => 'exercises#new'
+  get 'exercises/:id/next' => 'exercises#next', as: :next_exercise
 
   resources :concepts
   get 'concepts/new/:id' => 'concepts#new'
+  get 'concepts/:id/next' => 'concepts#next', as: :next_concept
 
   resources :courses
   get 'courses/:id/enroll' => 'courses#enroll', as: :course_enroll

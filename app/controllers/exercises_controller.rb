@@ -3,6 +3,12 @@ class ExercisesController < ApplicationController
     @exercise = Exercise.find(params[:id])
   end
 
+  def next
+    @exercise = Exercise.find(params[:id])
+    current_student.progress.exercises << @exercise
+    redirect_to next_concept_path(@exercise.concept)
+  end
+
   def new
     @@id = params[:id]
     @exercise = Concept.find(@@id).exercises.new
