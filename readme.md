@@ -9,20 +9,29 @@ CoreText is an eLearning app that focuses on presenting information one concept 
 Instructor
 
 - Create an account
-  
   - From the login page, click "New Instructor Account"
-  
 - Create a course
-  
   - On the "[instructor]'s Courses" page, click "Create Course"
-    
   - Select a subject category for the course
-    
     - If a suitable category doesn't exist, you can go to the subjects page and click "Add Subject" to create a new one
-    
-  - Name the course and give it a description
-    
-    ​
+- Add concepts to the course by clicking "add concept" on the course page
+  - Concepts' content can contain html for formatting
+- Add exercises to a concept by clicking "add exercise" on the concept page
+
+Student
+
+- Create an account
+  
+  - From the login page, click "New Student Account"
+  
+- Enroll in courses
+  
+  - Click "Subjects" to see subjects available
+  - On a subject's page, click the "Enroll" button on a course you'd like to take
+  
+- Once enrolled in a course, click "Continue" to pick up from wherever you left off (or from the beginning if you've just enrolled)
+  
+  ​
 
 # Technologies Used
 
