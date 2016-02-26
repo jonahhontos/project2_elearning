@@ -1,6 +1,15 @@
-<h1>New Subject</h1>
+<div class="row">
+  <div class="title">
+    <h1>New Subject</h1>
+  </div>
+</div>
+
 <%= form_for @subject do |f| %>
-  <%= f.text_field :name, placeholder: "Subject Name" %><br>
-  <%= f.submit %>
+  <div class="row">
+    <div class="form-group">
+      <%= f.text_field :name, placeholder: "Subject Name", class: "form-control" %><br>
+      <%= f.submit "Create Subject", class: "btn btn-default" %>
+    </div>
+  </div>
 <% end %>
-<%= link_to "Back", subjects_path %>
+<%= link_to "Back", subjects_path, class: "btn btn-default" %>

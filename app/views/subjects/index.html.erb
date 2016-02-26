@@ -10,7 +10,7 @@
       <h4><%= link_to s.name, subject_path(s) %></h4>
       <p>Available courses: <%= s.courses.count %></p>
       <% if instructor_logged_in? %>
-        <%= link_to "Edit", edit_subject_path(s) %> | <%= link_to "Delete", subject_path(s), method: :delete, data: {confirm: "Are you sure?"} %>
+        <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_subject_path(s), class: "btn btn-primary" %>  <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, subject_path(s), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>
