@@ -16,5 +16,5 @@
   </div>
 <% end %>
 <% if instructor_logged_in? %>
-  <%= link_to "Add Subject", new_subject_path,class:"btn btn-default"%>
+  <%= link_to "<span class='glyphicon glyphicon-plus'></span> Add Subject".html_safe, new_subject_path,class:"btn btn-default"%>
 <% end %>

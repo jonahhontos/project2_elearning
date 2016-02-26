@@ -1,3 +1,38 @@
+# CoreText
+
+http://coretext.herokuapp.com/
+
+CoreText is an eLearning app that focuses on presenting information one concept at a time, with exercises interspersed throughout. Anyone can create  instructor and user accounts. Instructors can create courses, which consist of a series of concepts and exercises, as well as subject categories. Students can enroll in courses, which show new concepts and exercises as they are completed.
+
+### How to Use
+
+Instructor
+
+- Create an account
+  
+  - From the login page, click "New Instructor Account"
+  
+- Create a course
+  
+  - On the "[instructor]'s Courses" page, click "Create Course"
+    
+  - Select a subject category for the course
+    
+    - If a suitable category doesn't exist, you can go to the subjects page and click "Add Subject" to create a new one
+    
+  - Name the course and give it a description
+    
+    ​
+
+# Technologies Used
+
+- Ruby
+- Ruby on Rails
+- HTML & CSS
+- Sass
+- Bootstrap
+- Heroku
+
 # User Stories
 
 - As an instructor I want to be able to present concepts and exercises modularly
