@@ -190,6 +190,7 @@ h2 {
 }
 
 .form-control {
+  @extend .shadow;
   text-align: center;
 }
 

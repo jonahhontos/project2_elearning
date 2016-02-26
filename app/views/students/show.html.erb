@@ -7,7 +7,7 @@
 <% @student.courses.each do |c| %>
   <div class="course">
     <h4><%= link_to c.name, course_path(c) %></h4><br>
-    <progress value="<%= current_student.progress.concepts.where(course_id: c.id).count %>" max="<%= c.concepts.count %>"></progress><br>
+    <progress value="<%= current_student.progress.concepts.where(course_id: c.id).count %>" max="<%= c.concepts.count %>" class="progress"></progress><br>
     <%= link_to "Continue", continue_course_path(c),class:"btn btn-default" %>
     <%= link_to "Drop Course", drop_course_path(c), data: {confirm: "Are you sure?"},class:"btn btn-default"  %>
   </div>
