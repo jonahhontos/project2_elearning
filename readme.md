@@ -1,6 +1,7 @@
 # CoreText
 
 http://coretext.herokuapp.com/
+https://trello.com/b/YAnjC5CA/wdi-project-2-elearning-app
 
 CoreText is an eLearning app that focuses on presenting information one concept at a time, with exercises interspersed throughout. Anyone can create  instructor and user accounts. Instructors can create courses, which consist of a series of concepts and exercises, as well as subject categories. Students can enroll in courses, which show new concepts and exercises as they are completed.
 
