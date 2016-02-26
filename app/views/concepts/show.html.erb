@@ -31,16 +31,18 @@
 <% end %>
 
 <% @concept.exercises.each do |e| %>
-  <div class="row">
-    <div class="exercise">
-      <% if instructor_logged_in? || (student_logged_in? && current_student.progress.exercises.include?(e)) %>
-        <%= link_to e.name, exercise_path(e) %><br>
-      <% end %>
-      <% if session[:instructor_id] == @concept.course.instructor.id %>
-        <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_exercise_path(e), class: "btn btn-primary" %>  <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, exercise_path(e), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary"  %>
-      <% end %>
+  <% if instructor_logged_in? || (student_logged_in? && current_student.progress.exercises.include?(e)) %>
+    <div class="row">
+      <div class="exercise">
+
+          <%= link_to e.name, exercise_path(e) %><br>
+
+        <% if session[:instructor_id] == @concept.course.instructor.id %>
+          <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_exercise_path(e), class: "btn btn-primary" %>  <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, exercise_path(e), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary"  %>
+        <% end %>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
 
 <% if session[:instructor_id] == @concept.course.instructor.id %>
