@@ -24,7 +24,7 @@
   </div>
 <% end %>
 
-<% unless student_logged_in? && @concept.exercises.count > 0 && current_student.progress.include?(@concept.exercise.first) %>
+<% unless student_logged_in? && @concept.exercises.count > 0 && current_student.progress.exercises.include?(@concept.exercises.first) %>
   <div class="subject-label">
     Exercises:
   </div>
