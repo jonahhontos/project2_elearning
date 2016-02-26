@@ -128,6 +128,7 @@ h2 {
 .flash {
   position: absolute;
   left: 30px;
+  z-index: 10;
 }
 
 .course {
@@ -148,7 +149,7 @@ h2 {
   @extend .course;
 }
 
-.exercise, .exercise-content {
+.exercise, .exercise-content, .exercise-answer {
   @extend.course
 }
 

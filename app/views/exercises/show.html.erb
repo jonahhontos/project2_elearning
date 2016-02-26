@@ -1,21 +1,37 @@
-<h1><%= @exercise.concept.name %></h1>
-<h2><%= @exercise.name %></h2>
-<div class="exercise-content">
-  <%= @exercise.content.html_safe %>
+<div class="row">
+  <div class="title">
+    <h1><%= @exercise.concept.name %></h1>
+    <h2><%= @exercise.name %></h2>
+  </div>
 </div>
+
+<div class="row">
+  <div class="exercise-content">
+    <%= @exercise.content.html_safe %><br>
+    <% if session[:instructor_id] == @exercise.concept.course.instructor.id %>
+      <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_exercise_path(@exercise) %><br>
+    <% end %>
+  </div>
+</div>
+
 <% if instructor_logged_in? || (student_logged_in? && current_student.progress.exercises.include?(@exercise)) %>
-  <div class="exercise-answer">
-    <%= @exercise.answer %>
+  <div class="row">
+    <div class="exercise-answer">
+      Answer: <%= @exercise.answer %>
+    </div>
   </div>
 <% end %>
+
 <% if student_logged_in? && current_student.courses.include?(@exercise.concept.course) && !current_student.progress.exercises.include?(@exercise) %>
-  <%= form_for @exercise, url: {action: "next", id: @exercise} do |f| %>
-    <%= f.text_field :answer, placeholder: "Enter Your Answer", value: "" %>
-    <%= f.submit "Next" %>
-  <% end %>
+  <div class="row">
+    <div class="form-group">
+      <%= form_for @exercise, url: {action: "next", id: @exercise} do |f| %>
+        <%= f.text_field :answer, placeholder: "Enter Your Answer", value: "", class: "form-control" %>
+        <%= f.submit "Next", class: "btn btn-default" %>
+      <% end %>
+    </div>
+  </div>
 <% end %>
-<%# link_to "Next", next_exercise_path(@exercise) %>
-<% if session[:instructor_id] == @exercise.concept.course.instructor.id %>
-  <%= link_to "Edit", edit_exercise_path(@exercise) %><br>
-<% end %>
-<%= link_to "Back", concept_path(@exercise.concept) %>
+
+
+<%= link_to "Back", concept_path(@exercise.concept), class: "btn btn-default" %>
