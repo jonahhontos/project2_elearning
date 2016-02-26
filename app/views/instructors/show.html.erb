@@ -3,7 +3,9 @@
     <h1><%= @instructor.name %>'s Courses</h1>
   </div>
 </div>
-<% if current_instructor.id == @instructor.id %>
+<%# current_instructor = 4 %>
+<%= current_instructor %>
+<% if instructor_logged_in? && current_instructor.id == @instructor.id %>
   <div class="row">
     <%= link_to "<span class='glyphicon glyphicon-plus'></span> New Course".html_safe, new_course_path, class: "btn btn-default" %>
   </div>
@@ -15,7 +17,7 @@
         <h4><%= link_to c.name, course_path(c) %></h4>
         <p><%= link_to c.subject.name, subject_path(c.subject) %></p>
         <p>Enrolled students: <%= c.students.count %></p>
-        <% if session[:instructor_id] == @instructor.id %>
+        <% if instructor_logged_in? && session[:instructor_id] == @instructor.id %>
           <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_course_path(c), class: "btn btn-primary"%> <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, course_path(c), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary" %>
         <% end %>
       </div>
