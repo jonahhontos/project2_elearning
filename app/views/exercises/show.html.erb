@@ -8,9 +8,6 @@
 <div class="row">
   <div class="exercise-content">
     <%= @exercise.content.html_safe %><br>
-    <% if session[:instructor_id] == @exercise.concept.course.instructor.id %>
-      <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_exercise_path(@exercise) %><br>
-    <% end %>
   </div>
 </div>
 
@@ -20,6 +17,10 @@
       Answer: <%= @exercise.answer %>
     </div>
   </div>
+<% end %>
+
+<% if session[:instructor_id] == @exercise.concept.course.instructor.id %>
+  <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_exercise_path(@exercise), class: "btn btn-primary" %>
 <% end %>
 
 <% if student_logged_in? && current_student.courses.include?(@exercise.concept.course) && !current_student.progress.exercises.include?(@exercise) %>

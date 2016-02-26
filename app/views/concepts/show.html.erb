@@ -13,7 +13,7 @@
   <div class="concept-content">
     <%= @concept.content.html_safe %><br>
     <% if session[:instructor_id] == @concept.course.instructor.id %>
-      <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_concept_path(@concept) %>
+      <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_concept_path(@concept), class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
@@ -37,7 +37,7 @@
         <%= link_to e.name, exercise_path(e) %><br>
       <% end %>
       <% if session[:instructor_id] == @concept.course.instructor.id %>
-        <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_exercise_path(e) %>  <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, exercise_path(e), method: :delete, data: {confirm: "Are you sure?"}  %>
+        <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_exercise_path(e), class: "btn btn-primary" %>  <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, exercise_path(e), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary"  %>
       <% end %>
     </div>
   </div>

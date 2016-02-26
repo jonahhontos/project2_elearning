@@ -18,7 +18,7 @@
       </h4>
       <p>Exercises: <%= c.exercises.count %></p>
       <% if session[:instructor_id] == @course.instructor.id %>
-        <p><%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_concept_path(c) %>  <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, concept_path(c), method: :delete, data: {confirm: "Are you sure?"} %></p>
+        <p><%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_concept_path(c), class: "btn btn-primary" %>  <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, concept_path(c), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary" %></p>
       <% end %>
     </div>
   </div>

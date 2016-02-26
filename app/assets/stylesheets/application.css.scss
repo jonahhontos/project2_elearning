@@ -20,6 +20,7 @@
 
 $whitish: #fffffe;
 $redish: #BF322E;
+$bluish: #326bb2;
 
  @font-face {
    font-family: CovesLight;
@@ -109,6 +110,22 @@ h2 {
 .btn-default:hover {
   background: darken($redish, 5);
   color: $whitish;
+}
+
+.btn-primary {
+  @extend .shadow;
+  @extend .text-shadow;
+  // background: darken($bluish,10);
+  // color: $whitish;
+  background: $whitish;
+  color: $bluish;
+  border: 1px solid black;
+  margin: 10px 10px;
+}
+
+.btn-primary:hover {
+  background: darken($bluish, 25);
+  // color: $whitish;
 }
 
 .shadow {
