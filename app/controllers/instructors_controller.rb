@@ -15,7 +15,7 @@ class InstructorsController < ApplicationController
     @instructor = Instructor.new(instructor_params)
 
     if @instructor.save
-      redirect_to instructors_path
+      redirect_to new_session_path + "?type=instructor"
     else
       redirect_to new_instructor_path
     end

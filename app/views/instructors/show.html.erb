@@ -3,8 +3,8 @@
     <h1><%= @instructor.name %>'s Courses</h1>
   </div>
 </div>
-<%# current_instructor = 4 %>
-<%= current_instructor %>
+<%# session[:instructor_id] = params[:id] %>
+<%# session[:instructor_id] %>
 <% if instructor_logged_in? && current_instructor.id == @instructor.id %>
   <div class="row">
     <%= link_to "<span class='glyphicon glyphicon-plus'></span> New Course".html_safe, new_course_path, class: "btn btn-default" %>
