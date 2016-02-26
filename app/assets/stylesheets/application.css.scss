@@ -78,6 +78,7 @@ h2 {
 }
 
 .navbar {
+  @extend .text-shadow;
   @extend .shadow;
   border-radius: 0;
   margin: 0 -15px;
@@ -101,7 +102,8 @@ h2 {
 
 .btn-default {
   @extend .shadow;
-  @extend .text-shadow;
+  // @extend .text-shadow;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
   background: $redish;
   color: $whitish;
   margin: 10px 0;
@@ -113,14 +115,16 @@ h2 {
 }
 
 .btn-primary {
-  @extend .shadow;
+  // @extend .shadow;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
   @extend .text-shadow;
   // background: darken($bluish,10);
   // color: $whitish;
   background: $whitish;
   color: $bluish;
-  border: 1px solid black;
+  border: 1px solid darken($bluish,10);
   margin: 10px 10px;
+  padding: 5px 9px;
 }
 
 .btn-primary:hover {
@@ -130,6 +134,10 @@ h2 {
 
 .shadow {
   box-shadow: 3px 3px 4px rgba(0,0,0,0.2);
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 }
 
 .boxed {
@@ -195,9 +203,7 @@ select {
   color: $whitish;
 }
 
-.text-shadow {
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
-}
+
 
 .title {
   @extend .boxed;
