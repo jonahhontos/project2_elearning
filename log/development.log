@@ -40762,3 +40762,288 @@ Processing by ConceptsController#show as HTML
   [1m[35mCACHE (0.0ms)[0m  SELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1  [["id", 1]]
   Rendered concepts/show.html.erb within layouts/application (5.3ms)
 Completed 200 OK in 73ms (Views: 70.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2016-02-25 16:13:10 -0800
+Processing by WelcomeController#index as HTML
+  [1m[36mInstructor Load (0.4ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/instructors/1
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/instructors/1" for ::1 at 2016-02-25 16:13:10 -0800
+Processing by InstructorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mInstructor Load (0.4ms)[0m  SELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."instructor_id" = $1[0m  [["instructor_id", 1]]
+  [1m[35mSubject Load (0.4ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = $1[0m  [["course_id", 1]]
+  [1m[35mSubject Load (0.3ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = $1[0m  [["course_id", 11]]
+  Rendered instructors/show.html.erb within layouts/application (12.1ms)
+  [1m[35mInstructor Load (0.3ms)[0m  SELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 134ms (Views: 129.4ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/courses/new" for ::1 at 2016-02-25 16:13:12 -0800
+Processing by CoursesController#new as HTML
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT "subjects".* FROM "subjects"[0m
+  [1m[35mInstructor Load (0.2ms)[0m  SELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered courses/new.html.erb within layouts/application (2.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 75ms (Views: 73.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/instructors/1" for ::1 at 2016-02-25 16:13:13 -0800
+Processing by InstructorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mInstructor Load (0.3ms)[0m  SELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."instructor_id" = $1[0m  [["instructor_id", 1]]
+  [1m[35mSubject Load (0.3ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = $1[0m  [["course_id", 1]]
+  [1m[35mSubject Load (0.5ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = $1[0m  [["course_id", 11]]
+  Rendered instructors/show.html.erb within layouts/application (8.8ms)
+  [1m[35mInstructor Load (0.3ms)[0m  SELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 81ms (Views: 77.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/courses/1/edit" for ::1 at 2016-02-25 16:13:15 -0800
+Processing by CoursesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mSubject Load (0.4ms)[0m  SELECT "subjects".* FROM "subjects"
+  [1m[36mInstructor Load (0.3ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered courses/edit.html.erb within layouts/application (3.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 89ms (Views: 87.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/instructors/1" for ::1 at 2016-02-25 16:13:18 -0800
+Processing by InstructorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mInstructor Load (0.3ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."instructor_id" = $1  [["instructor_id", 1]]
+  [1m[36mSubject Load (0.2ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = $1  [["course_id", 1]]
+  [1m[36mSubject Load (0.2ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = $1  [["course_id", 11]]
+  Rendered instructors/show.html.erb within layouts/application (8.0ms)
+  [1m[36mInstructor Load (0.4ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 66ms (Views: 62.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/courses/1" for ::1 at 2016-02-25 16:15:14 -0800
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCourse Load (0.4ms)[0m  SELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mConcept Load (0.3ms)[0m  [1mSELECT "concepts".* FROM "concepts" WHERE "concepts"."course_id" = $1[0m  [["course_id", 1]]
+  [1m[35mInstructor Load (0.3ms)[0m  SELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1[0m  [["concept_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1[0m  [["concept_id", 3]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 7]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1[0m  [["concept_id", 8]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 9]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1[0m  [["concept_id", 10]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 11]]
+  Rendered courses/show.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 76ms (Views: 71.4ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/concepts/7" for ::1 at 2016-02-25 16:15:20 -0800
+Processing by ConceptsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mConcept Load (0.2ms)[0m  [1mSELECT  "concepts".* FROM "concepts" WHERE "concepts"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mInstructor Load (0.2ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mExercise Load (0.2ms)[0m  SELECT "exercises".* FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered concepts/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 61ms (Views: 59.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/exercises/5" for ::1 at 2016-02-25 16:16:01 -0800
+Processing by ExercisesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mExercise Load (0.3ms)[0m  SELECT  "exercises".* FROM "exercises" WHERE "exercises"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mConcept Load (0.2ms)[0m  [1mSELECT  "concepts".* FROM "concepts" WHERE "concepts"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mInstructor Load (0.2ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered exercises/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 59ms (Views: 56.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/concepts/7" for ::1 at 2016-02-25 16:16:03 -0800
+Processing by ConceptsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mConcept Load (0.2ms)[0m  [1mSELECT  "concepts".* FROM "concepts" WHERE "concepts"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mInstructor Load (0.3ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mExercise Load (0.3ms)[0m  SELECT "exercises".* FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered concepts/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 94ms (Views: 92.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/courses/1" for ::1 at 2016-02-25 16:16:04 -0800
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCourse Load (0.2ms)[0m  SELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mConcept Load (0.3ms)[0m  [1mSELECT "concepts".* FROM "concepts" WHERE "concepts"."course_id" = $1[0m  [["course_id", 1]]
+  [1m[35mInstructor Load (0.2ms)[0m  SELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1[0m  [["concept_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1[0m  [["concept_id", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 7]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1[0m  [["concept_id", 8]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 9]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1[0m  [["concept_id", 10]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 11]]
+  Rendered courses/show.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 98ms (Views: 94.3ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/concepts/2/edit" for ::1 at 2016-02-25 16:16:19 -0800
+Processing by ConceptsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mConcept Load (0.3ms)[0m  [1mSELECT  "concepts".* FROM "concepts" WHERE "concepts"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered concepts/edit.html.erb within layouts/application (2.1ms)
+  [1m[36mInstructor Load (0.3ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 78ms (Views: 76.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/courses/1" for ::1 at 2016-02-25 16:16:20 -0800
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCourse Load (0.2ms)[0m  SELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mConcept Load (0.3ms)[0m  [1mSELECT "concepts".* FROM "concepts" WHERE "concepts"."course_id" = $1[0m  [["course_id", 1]]
+  [1m[35mInstructor Load (0.3ms)[0m  SELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1[0m  [["concept_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1[0m  [["concept_id", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 7]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1[0m  [["concept_id", 8]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 9]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1[0m  [["concept_id", 10]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 11]]
+  Rendered courses/show.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 87ms (Views: 82.9ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/concepts/3" for ::1 at 2016-02-25 16:16:26 -0800
+Processing by ConceptsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mConcept Load (0.3ms)[0m  [1mSELECT  "concepts".* FROM "concepts" WHERE "concepts"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mInstructor Load (0.2ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mExercise Load (0.2ms)[0m  SELECT "exercises".* FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered concepts/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 78ms (Views: 75.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/concepts/3/edit" for ::1 at 2016-02-25 16:16:27 -0800
+Processing by ConceptsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mConcept Load (0.2ms)[0m  SELECT  "concepts".* FROM "concepts" WHERE "concepts"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered concepts/edit.html.erb within layouts/application (1.9ms)
+  [1m[35mInstructor Load (0.3ms)[0m  SELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 72ms (Views: 69.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/courses/1" for ::1 at 2016-02-25 16:16:29 -0800
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mConcept Load (0.3ms)[0m  SELECT "concepts".* FROM "concepts" WHERE "concepts"."course_id" = $1  [["course_id", 1]]
+  [1m[36mInstructor Load (0.2ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 3]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1[0m  [["concept_id", 7]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 8]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1[0m  [["concept_id", 9]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 10]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1[0m  [["concept_id", 11]]
+  Rendered courses/show.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 89ms (Views: 85.7ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/concepts/3/edit" for ::1 at 2016-02-25 16:16:30 -0800
+Processing by ConceptsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mConcept Load (0.3ms)[0m  SELECT  "concepts".* FROM "concepts" WHERE "concepts"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered concepts/edit.html.erb within layouts/application (3.2ms)
+  [1m[35mInstructor Load (0.3ms)[0m  SELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 73ms (Views: 71.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/courses/1" for ::1 at 2016-02-25 16:16:32 -0800
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mConcept Load (0.3ms)[0m  SELECT "concepts".* FROM "concepts" WHERE "concepts"."course_id" = $1  [["course_id", 1]]
+  [1m[36mInstructor Load (0.2ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 3]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1[0m  [["concept_id", 7]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 8]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1[0m  [["concept_id", 9]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1  [["concept_id", 10]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "exercises" WHERE "exercises"."concept_id" = $1[0m  [["concept_id", 11]]
+  Rendered courses/show.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 83ms (Views: 79.0ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for ::1 at 2016-02-25 16:16:34 -0800
+Processing by WelcomeController#index as HTML
+  [1m[35mInstructor Load (0.2ms)[0m  SELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/instructors/1
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/instructors/1" for ::1 at 2016-02-25 16:16:34 -0800
+Processing by InstructorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mInstructor Load (0.2ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."instructor_id" = $1  [["instructor_id", 1]]
+  [1m[36mSubject Load (0.2ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = $1  [["course_id", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = $1  [["course_id", 11]]
+  Rendered instructors/show.html.erb within layouts/application (7.3ms)
+  [1m[36mInstructor Load (0.3ms)[0m  [1mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 77ms (Views: 74.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/logout?type=instructor" for ::1 at 2016-02-25 16:16:39 -0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"type"=>"instructor"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-02-25 16:16:39 -0800
+Processing by WelcomeController#index as HTML
+Redirected to http://localhost:3000/sessions/new?type=student
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new?type=student" for ::1 at 2016-02-25 16:16:39 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"type"=>"student"}
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 83ms (Views: 82.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new?type=instructor" for ::1 at 2016-02-25 16:16:43 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"type"=>"instructor"}
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 83ms (Views: 82.3ms | ActiveRecord: 0.0ms)
