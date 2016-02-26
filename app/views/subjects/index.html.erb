@@ -1,13 +1,20 @@
-<h1>Subjects</h1>
+<div class="row">
+  <div class="title">
+    <h1>Subjects</h1>
+  </div>
+</div>
+
 <% @subjects.each do |s| %>
-  <div class="subject">
-    <h4><%= link_to s.name, subject_path(s) %></h4>
-    <p>Available courses: <%= s.courses.count %></p>
-    <% if instructor_logged_in? %>
-      <%= link_to "Edit", edit_subject_path(s) %> | <%= link_to "Delete", subject_path(s), method: :delete, data: {confirm: "Are you sure?"} %>
-    <% end %>
+  <div class="row">
+    <div class="course">
+      <h4><%= link_to s.name, subject_path(s) %></h4>
+      <p>Available courses: <%= s.courses.count %></p>
+      <% if instructor_logged_in? %>
+        <%= link_to "Edit", edit_subject_path(s) %> | <%= link_to "Delete", subject_path(s), method: :delete, data: {confirm: "Are you sure?"} %>
+      <% end %>
+    </div>
   </div>
 <% end %>
 <% if instructor_logged_in? %>
-  <%= link_to "Add Subject", new_subject_path %>
+  <%= link_to "Add Subject", new_subject_path,class:"btn btn-default"%>
 <% end %>
