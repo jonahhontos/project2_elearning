@@ -1,14 +1,21 @@
-<h1>Courses in <%= @subject.name %></h1>
+<div class="row">
+  <div class="title">
+    <h1>Courses in <%= @subject.name %></h1>
+  </div>
+</div>
+
 <% @subject.courses.each do |c| %>
-  <div class="course">
-    <h4><%= c.name %></h4><br>
-    <p><%= c.instructor.name %></p>
-    <p><%= c.description %></p>
-    <% if student_logged_in? %>
-      <% unless current_student.courses.include? c %>
-        <%= link_to "Enroll", course_enroll_path(c) %>
+  <div class="row">
+    <div class="course">
+      <h4><%= c.name %></h4><br>
+      <p><%= c.instructor.name %></p>
+      <p><%= c.description %></p>
+      <% if student_logged_in? %>
+        <% unless current_student.courses.include? c %>
+          <%= link_to "Enroll", course_enroll_path(c), class: "btn btn-primary" %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 <% end %>
-<%= link_to "Back", subjects_path %>
+<%= link_to "Back", subjects_path, class: "btn btn-default" %>
