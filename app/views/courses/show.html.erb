@@ -7,12 +7,6 @@
   <%= link_to "Back", root_path, class:"btn btn-default" %>
 </div>
 
-<% if session[:instructor_id] == @course.instructor.id %>
-  <div class="row">
-    <%= link_to "Add Concept", new_concept_path + '/' + @course.id.to_s, class: "btn btn-default" %><br>
-  </div>
-<% end %>
-
 <% @course.concepts.each do |c| %>
   <div class="row">
     <div class="concept">
@@ -27,5 +21,11 @@
         <p><%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_concept_path(c) %>  <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, concept_path(c), method: :delete, data: {confirm: "Are you sure?"} %></p>
       <% end %>
     </div>
+  </div>
+<% end %>
+
+<% if session[:instructor_id] == @course.instructor.id %>
+  <div class="row">
+    <%= link_to "Add Concept", new_concept_path + '/' + @course.id.to_s, class: "btn btn-default" %><br>
   </div>
 <% end %>

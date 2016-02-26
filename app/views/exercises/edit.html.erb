@@ -1,9 +1,18 @@
-<h1><%= @exercise.concept.name %></h1>
-<h2>Edit Exercise</h2>
+<div class="row">
+  <div class="title">
+    <h1><%= @exercise.concept.name %></h1>
+    <h2><%= @exercise.name %></h2>
+  </div>
+</div>
+
 <%= form_for @exercise do |f| %>
-  <%= f.text_field :name, :placeholder => "Exercise Name" %><br>
-  <%= f.text_area :content, :placeholder => "Exercise Content" %><br>
-  <%= f.text_field :answer, :placeholder => "Answer" %><br>
-  <%= f.submit %>
+  <div class="row">
+    <div class="form-group">
+      <%= f.text_field :name, :placeholder => "Exercise Name", class: "form-control" %><br>
+      <%= f.text_area :content, :placeholder => "Exercise Content", class: "form-control"  %><br>
+      <%= f.text_field :answer, :placeholder => "Answer", class: "form-control"  %><br>
+      <%= f.submit "Update Exercise", class: "btn btn-default" %>
+    </div>
+  </div>
 <% end %>
-<%= link_to "Back", concept_path(@exercise.concept) %>
+<%= link_to "Back", concept_path(@exercise.concept), class: "btn btn-default" %>
