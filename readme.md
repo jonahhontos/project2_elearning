@@ -1,4 +1,19 @@
+# User Stories
 
+- As an instructor I want to be able to present concepts and exercises modularly
+- As an instructor, I want to customize the order and number of modules in a given course
+- As an instructor, I want to be able to include images, sounds, and video in concept modules *(not done)*
+- As an instructor, I want to be able to specify that certain courses are prerequisite to others *(not done)*
+- As an instructor, I want to be able to revise courses and modules, to remove errors or improve understandability
+- As a student, I want to be able to select courses to take
+- As a student, I want to be able to track my progress through courses
+- As a student, I want to be able to provide feedback on courses and modules *(not done)*
+- As a student, I want to be able to see a summary of concepts I've learned *(not done)*
+- As a student, I want to be able to quickly check back on previous concepts to review them *(not done)*
+
+# Entity Relationships 
+
+ ![project2_elearning_erd](/wireframes/project2_elearning_erd.png)
 
 # Wireframes
 
