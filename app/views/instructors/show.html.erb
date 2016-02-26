@@ -3,7 +3,7 @@
     <h1><%= @instructor.name %>'s Courses</h1>
   </div>
 </div>
-<% if session[:instructor_id] == @instructor.id %>
+<% if current_instructor.id == @instructor.id %>
   <div class="row">
     <%= link_to "<span class='glyphicon glyphicon-plus'></span> New Course".html_safe, new_course_path, class: "btn btn-default" %>
   </div>

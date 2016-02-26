@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
   def create
     if @@type == "instructor"
-      @instructor  = Instructor.find_by({name: params[:name]})
+      @instructor  = Instructor.find_by_name(params[:name])
       if @instructor && @instructor.authenticate(params[:password])
         session[:instructor_id] = @instructor.id
         flash[:success] = "Welcome, #{@instructor.name}"
